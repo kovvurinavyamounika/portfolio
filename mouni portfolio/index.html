@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <meta name="description" content="Portfolio of Kovvuri Navya Mounika - AI/ML student and Software Developer." />
+  <meta name="keywords"
+    content="Kovvuri Navya Mounika, Navya Mounika, Software Engineer, AI ML, Computer Science, Web Development, Portfolio" />
+  <meta property="og:title" content="Kovvuri Navya Mounika | Portfolio" />
+  <meta property="og:description" content="Explore projects, technical skills, and software engineering experience." />
+  <meta property="og:type" content="website" />
+
+  <!-- Google Fonts: Inter, Plus Jakarta Sans, JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            dark: {
+              950: '#070a12',
+              900: '#0b0f19',
+              850: '#101626',
+              800: '#161f36',
+              700: '#23304d',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body
+  class="bg-dark-950 text-slate-100 font-body antialiased selection:bg-indigo-500 selection:text-white relative overflow-x-hidden min-h-screen">
+
+  <!-- Top Scroll Progress Bar -->
+  <div class="fixed top-0 left-0 right-0 h-1 z-50 bg-transparent">
+    <div id="scroll-progress" class="h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 w-0"></div>
+  </div>
+
+  <!-- Ambient Background Glow & Grid -->
+  <div class="fixed inset-0 bg-grid-pattern opacity-60 pointer-events-none z-0"></div>
+  <div class="hero-glow bg-indigo-600/20 w-[550px] h-[550px] -top-32 -left-32"></div>
+  <div class="hero-glow bg-purple-600/15 w-[650px] h-[650px] top-1/3 -right-48"></div>
+  <div class="hero-glow bg-cyan-600/10 w-[500px] h-[500px] bottom-10 left-1/4"></div>
+
+  <!-- ==================== NAVIGATION BAR ==================== -->
+  <header id="navbar"
+    class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-4 px-6 md:px-12 bg-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo -->
+      <a href="#hero" class="flex items-center gap-3 group">
+        <div
+          class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-purple-600 p-[1px] shadow-lg shadow-indigo-500/25">
+          <div
+            class="w-full h-full bg-dark-900 rounded-xl flex items-center justify-center group-hover:bg-dark-850 transition">
+            <span id="brand-monogram"
+              class="font-mono text-indigo-400 font-bold text-sm tracking-tighter">&lt;KNM/&gt;</span>
+          </div>
+        </div>
+        <span class="font-sans text-lg font-bold text-white">Portfolio</span>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+        <a href="#about" class="nav-link text-slate-300 hover:text-white transition">About</a>
+        <a href="#education" class="nav-link text-slate-300 hover:text-white transition">Education</a>
+        <a href="#skills" class="nav-link text-slate-300 hover:text-white transition">Skills</a>
+        <a href="#certifications" class="nav-link text-slate-300 hover:text-white transition">Certificates</a>
+        <a href="#achievements" class="nav-link text-slate-300 hover:text-white transition">Achievements</a>
+        <a href="#contact" class="nav-link text-slate-300 hover:text-white transition">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger Button -->
+      <button id="mobile-menu-btn"
+        class="md:hidden p-2 rounded-lg bg-dark-850 border border-slate-800 text-slate-300 hover:text-white focus:outline-none"
+        aria-label="Toggle menu">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden fixed inset-0 top-[72px] bg-dark-950/95 backdrop-blur-xl border-t border-slate-800/80 p-6 flex flex-col justify-between z-50">
+      <div class="flex flex-col gap-5 text-lg font-medium">
+        <a href="#education"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>About Me</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#about"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>Education</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#skills"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>Technical Skills</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#certifications"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>Certificates</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#achievements"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>Achievements</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+        <a href="#contact"
+          class="mobile-nav-link text-slate-200 hover:text-indigo-400 py-2 border-b border-slate-900 flex items-center justify-between">
+          <span>Contact</span>
+          <i data-lucide="chevron-right" class="w-4 h-4 text-slate-500"></i>
+        </a>
+      </div>
+
+      <div class="flex flex-col gap-3 pt-6">
+        <a href="#contact"
+          class="w-full py-3 rounded-xl text-center font-medium bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-600/30">
+          Get in Touch
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==================== HERO SECTION ==================== -->
+  <section id="hero" class="relative z-10 pt-32 pb-16 md:pt-40 md:pb-24 max-w-7xl mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+
+      <!-- Main Hero Content -->
+      <div class="lg:col-span-12 flex flex-col items-center text-center order-2 lg:order-1">
+        <!-- Status Pill Badge -->
+        <div
+          class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-indigo-950/60 border border-indigo-500/30 text-indigo-300 text-xs font-medium mb-6 shadow-inner animate-float">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span id="hero-role-badge">Opened for Opportunity</span>
+        </div>
+
+        <!-- Main Title -->
+        <h1
+          class="font-sans text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-3 leading-tight">
+          Hi, I am <span id="hero-name" class="text-gradient-primary">Kovvuri Navya Mounika</span>.
+        </h1>
+
+        <p class="text-base sm:text-lg text-slate-300 max-w-xl mb-4 leading-relaxed">
+          Software Developer • B.Tech, AIML
+        </p>
+
+        <!-- Dynamic Typing Subtitle -->
+        <div class="font-mono text-base sm:text-xl text-slate-300 mb-6 h-8 flex items-center justify-center">
+          <span class="text-indigo-400 font-semibold mr-2">&gt;</span>
+          <span id="typing-text" class="text-indigo-300"></span>
+          <span class="typed-cursor">|</span>
+        </div>
+
+        <!-- Short Elevator Bio -->
+        <p id="hero-bio" class="text-base sm:text-lg text-slate-400 max-w-xl leading-relaxed mb-8">
+          I am Artificial intelligent &amp; solve complex problems.
+        </p>
+
+        <!-- Hero CTA Buttons -->
+        <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+          <a href="#contact"
+            class="px-6 py-3.5 rounded-xl font-semibold text-slate-200 bg-dark-900 border border-slate-700/80 hover:border-slate-500 hover:bg-dark-850 transition transform hover:-translate-y-0.5 flex items-center gap-2 text-sm">
+            <i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i>
+            <span>Get in Touch</span>
+          </a>
+          <button id="hero-email-btn"
+            class="px-4 py-3.5 rounded-xl font-mono text-xs text-slate-300 bg-dark-900 border border-slate-800 hover:border-indigo-500/40 hover:text-indigo-300 transition flex items-center gap-2"
+            title="Click to copy email">
+            <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+            <span id="hero-email-text">kovvurinavyamounika@gmail.com</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Subtle gradient overlay at bottom of photo -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-dark-950/80 via-transparent to-transparent pointer-events-none">
+      </div>
+    </div>
+    </div>
+
+    <!-- Floating Badge 1: Top Right -->
+    <div
+      class="absolute -top-3 -right-3 px-3.5 py-1.5 rounded-full bg-dark-900/90 border border-indigo-500/40 text-xs font-mono text-indigo-300 shadow-xl backdrop-blur-md flex items-center gap-1.5 animate-float">
+      <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+      <span>AI &amp; ML Undergrad</span>
+    </div>
+
+    <!-- Floating Badge 2: Bottom Left -->
+    <div
+      class="absolute -bottom-3 -left-3 px-3.5 py-1.5 rounded-full bg-dark-900/90 border border-purple-500/40 text-xs font-mono text-purple-300 shadow-xl backdrop-blur-md flex items-center gap-1.5 animate-float"
+      style="animation-delay: 1.5s;">
+      <i data-lucide="code-2" class="w-3.5 h-3.5 text-purple-400"></i>
+      <span>Problem Solver</span>
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+
+    <!-- Tech Stack Pill Ribbon (Full Width) -->
+    <div class="mt-14 w-full border-t border-slate-800/80 pt-8 flex flex-col items-center">
+      <p class="font-mono text-xs uppercase tracking-widest text-slate-400 mb-4">Core Technologies &amp; Environments
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 text-xs font-mono text-slate-300">
+        <span
+          class="px-3 py-1.5 rounded-lg bg-dark-850 border border-slate-800 flex items-center gap-1.5 hover:border-indigo-500/40 transition"><span
+            class="w-1.5 h-1.5 rounded-full bg-yellow-400"></span>Python</span>
+        <span
+          class="px-3 py-1.5 rounded-lg bg-dark-850 border border-slate-800 flex items-center gap-1.5 hover:border-indigo-500/40 transition"><span
+            class="w-1.5 h-1.5 rounded-full bg-blue-500"></span>C++</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ABOUT & STATS SECTION ==================== -->
+  <section id="about" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="flex flex-col md:flex-row gap-12 items-start">
+
+      <!-- Left Column: Personal Narrative -->
+      <div class="w-full md:w-7/12">
+        <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+          <i data-lucide="terminal" class="w-3.5 h-3.5"></i>
+          <span>About Me</span>
+        </div>
+        <h2 class="font-sans text-3xl sm:text-4xl font-bold tracking-tight text-white mb-6">
+          Who I am
+        </h2>
+        <div class="space-y-4 text-slate-300 leading-relaxed text-base">
+          <p>
+            I’m a B.Tech AI/ML student at Aditya University, Surampalem, with a CGPA of 8.0.
+          </p>
+          <p>
+            I’m passionate about Artificial Intelligence, Machine Learning, Python, and software development, with a
+            strong interest in building practical and responsive applications.
+          </p>
+          <p>
+            My technical journey includes C, C++, Python, DSA, Databases, and Web Development. I regularly practice
+            problem-solving on platforms such as HackerRank, CodeChef, LeetCode, and GeeksforGeeks, and I have earned
+            industry-recognised technical and soft-skill certifications from Cisco, Infosys, HackerRank, Coursera, and
+            LinkedIn Learning.
+          </p>
+          <p>
+            I enjoy turning ideas into real-world projects and continuously improving my coding, problem-solving,
+            teamwork, and communication skills.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Professional Profiles -->
+      <div class="w-full md:w-5/12 space-y-4">
+        <h3 class="font-mono text-xs text-indigo-400 tracking-wider uppercase">Professional Profiles</h3>
+        <a href="https://github.com/kovvurinavyamounika" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-between p-5 rounded-2xl glass-card border border-slate-800 hover:border-slate-500/60 transition">
+          <span>
+            <span class="block font-bold text-white">GitHub</span>
+            <span class="text-xs text-slate-400">Projects and source code</span>
+          </span>
+          <i data-lucide="github" class="w-5 h-5 text-slate-200"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/navya-mounika-kovvuri-24218a387" target="_blank" rel="noopener noreferrer"
+          class="flex items-center justify-between p-5 rounded-2xl glass-card border border-slate-800 hover:border-sky-500/40 transition">
+          <span>
+            <span class="block font-bold text-white">LinkedIn</span>
+            <span class="text-xs text-slate-400">Professional profile</span>
+          </span>
+          <i data-lucide="linkedin" class="w-5 h-5 text-sky-400"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== EDUCATION SECTION ==================== -->
+  <section id="education" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+        <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+        <span>Education</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Academic Background
+      </h2>
+    </div>
+
+    <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-dark-900/70 shadow-xl">
+      <table class="min-w-full text-left border-collapse">
+        <thead class="bg-slate-950/80">
+          <tr>
+            <th class="px-4 py-4 text-sm font-semibold text-indigo-300 border-b border-slate-800">Qualifications</th>
+            <th class="px-4 py-4 text-sm font-semibold text-indigo-300 border-b border-slate-800">Institutions</th>
+            <th class="px-4 py-4 text-sm font-semibold text-indigo-300 border-b border-slate-800">Place</th>
+            <th class="px-4 py-4 text-sm font-semibold text-indigo-300 border-b border-slate-800">Year</th>
+            <th class="px-4 py-4 text-sm font-semibold text-indigo-300 border-b border-slate-800">Percentage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-slate-800/80">
+            <td class="px-4 py-4 text-sm text-slate-200">B.Tech in AIML</td>
+            <td class="px-4 py-4 text-sm text-slate-200">Aditya University</td>
+            <td class="px-4 py-4 text-sm text-slate-200">Surampalem</td>
+            <td class="px-4 py-4 text-sm text-slate-200">2025 - 2029</td>
+            <td class="px-4 py-4 text-sm text-slate-200">8.0 CGPA</td>
+          </tr>
+          <tr class="border-b border-slate-800/80">
+            <td class="px-4 py-4 text-sm text-slate-200">Intermediate</td>
+            <td class="px-4 py-4 text-sm text-slate-200">Aditya Junior College</td>
+            <td class="px-4 py-4 text-sm text-slate-200">Mandapeta</td>
+            <td class="px-4 py-4 text-sm text-slate-200">2023 - 2025</td>
+            <td class="px-4 py-4 text-sm text-slate-200">90.2%</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-4 text-sm text-slate-200">10th Standard</td>
+            <td class="px-4 py-4 text-sm text-slate-200">St Ann's School</td>
+            <td class="px-4 py-4 text-sm text-slate-200">Mandapeta</td>
+            <td class="px-4 py-4 text-sm text-slate-200">2022 - 2023</td>
+            <td class="px-4 py-4 text-sm text-slate-200">86%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ==================== TECHNICAL SKILLS SECTION ==================== -->
+  <section id="skills" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+        <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+        <span>Technical Arsenal</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Skills, Tools & Technologies
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        A structured breakdown of languages, frameworks, and tooling I use to architect robust, scalable software.
+      </p>
+    </div>
+
+    <!-- Skills Container populated dynamically -->
+    <div id="skills-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- ==================== CERTIFICATIONS ==================== -->
+  <section id="certifications" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+        <i data-lucide="award" class="w-3.5 h-3.5"></i>
+        <span>Certificates</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Professional Certifications
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Add your recognized certifications here to showcase continuous learning and domain expertise.
+      </p>
+    </div>
+
+    <div id="certifications-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- ==================== ACHIEVEMENTS ==================== -->
+  <section id="achievements" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+        <i data-lucide="trophy" class="w-3.5 h-3.5"></i>
+        <span>Track Record</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Achievements
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base">
+        Highlights and recognition from my learning journey.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <div class="lg:col-span-7 space-y-6">
+        <h3 class="font-sans font-bold text-xl text-white flex items-center gap-2.5 mb-6">
+          <i data-lucide="code-2" class="w-5 h-5 text-emerald-400"></i>
+          <span>Coding Platforms</span>
+        </h3>
+
+        <div class="p-5 rounded-2xl bg-dark-900/80 border border-slate-800">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            <a href="https://www.hackerrank.com/profile/kovvurinavyamou1" target="_blank" rel="noopener noreferrer"
+              class="p-5 min-h-[120px] rounded-xl bg-dark-850 border border-slate-800 hover:border-emerald-500/40 hover:bg-slate-800 transition flex flex-col items-start justify-between gap-3 text-sm font-mono text-slate-200">
+              <span class="text-emerald-400 font-bold">HR</span>
+              <span class="font-bold">HackerRank</span>
+              <span class="text-xs text-slate-400">5-star in C, Python &amp; Problem Solving</span>
+              <span class="text-xs text-emerald-400">Visit Profile <i data-lucide="arrow-up-right"
+                  class="inline w-3.5 h-3.5"></i></span>
+            </a>
+            <a href="https://www.codechef.com/users/holy_medal_56" target="_blank" rel="noopener noreferrer"
+              class="p-5 min-h-[120px] rounded-xl bg-dark-850 border border-slate-800 hover:border-amber-500/40 hover:bg-slate-800 transition flex flex-col items-start justify-between gap-3 text-sm font-mono text-slate-200">
+              <span class="text-amber-500 font-bold">CC</span>
+              <span class="font-bold">CodeChef</span>
+              <span class="text-xs text-slate-400">180+ Problems Solved</span>
+              <span class="text-xs text-amber-400">Visit Profile <i data-lucide="arrow-up-right"
+                  class="inline w-3.5 h-3.5"></i></span>
+            </a>
+            <a href="https://leetcode.com/u/KovvuriNavyaMounika/" target="_blank" rel="noopener noreferrer"
+              class="p-5 min-h-[120px] rounded-xl bg-dark-850 border border-slate-800 hover:border-yellow-500/40 hover:bg-slate-800 transition flex flex-col items-start justify-between gap-3 text-sm font-mono text-slate-200">
+              <span class="text-amber-400 font-bold">LC</span>
+              <span class="font-bold">LeetCode</span>
+              <span class="text-xs text-slate-400">35+ Problems Solved</span>
+              <span class="text-xs text-yellow-400">Visit Profile <i data-lucide="arrow-up-right"
+                  class="inline w-3.5 h-3.5"></i></span>
+            </a>
+            <a href="https://www.geeksforgeeks.org/user/kovvurinavyamounika/" target="_blank" rel="noopener noreferrer"
+              class="p-5 min-h-[120px] rounded-xl bg-dark-850 border border-slate-800 hover:border-green-500/40 hover:bg-slate-800 transition flex flex-col items-start justify-between gap-3 text-sm font-mono text-slate-200">
+              <span class="text-green-400 font-bold">GFG</span>
+              <span class="font-bold">GeeksforGeeks</span>
+              <span class="text-xs text-slate-400">Coding practice profile</span>
+              <span class="text-xs text-green-400">Visit Profile <i data-lucide="arrow-up-right"
+                  class="inline w-3.5 h-3.5"></i></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 space-y-6">
+        <h3 class="font-sans font-bold text-xl text-white flex items-center gap-2.5 mb-6">
+          <i data-lucide="award" class="w-5 h-5 text-yellow-400"></i>
+          <span>Badges</span>
+        </h3>
+        <div class="grid grid-cols-2 gap-3">
+          <a href="https://www.credly.com/badges/fcc39397-3562-4c83-a1b8-2845cc09af95" target="_blank"
+            rel="noopener noreferrer"
+            class="block aspect-square p-3 rounded-xl bg-dark-900/80 border border-slate-800 hover:border-teal-500/50 transition group">
+            <img src="assets/c-badge.svg" alt="C Essentials 1 Credly badge"
+              class="w-full max-w-[120px] mx-auto rounded-lg transition duration-300 group-hover:scale-[1.02]">
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <div>
+                <h4 class="font-bold text-white text-xs">C Essentials 1</h4>
+                <p class="text-[10px] text-slate-400 mt-1">View on Credly</p>
+              </div>
+              <i data-lucide="external-link" class="w-4 h-4 text-teal-400 shrink-0"></i>
+            </div>
+          </a>
+          <a href="https://www.credly.com/badges/7c8aee97-5a93-4e51-9e0f-f0650209dd18" target="_blank"
+            rel="noopener noreferrer"
+            class="block aspect-square p-3 rounded-xl bg-dark-900/80 border border-slate-800 hover:border-blue-500/50 transition group">
+            <img src="assets/python-essentials-1-badge.svg" alt="Python Essentials 1 Credly badge"
+              class="w-full max-w-[120px] mx-auto rounded-lg transition duration-300 group-hover:scale-[1.02]">
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <div>
+                <h4 class="font-bold text-white text-xs">Python Essentials 1</h4>
+                <p class="text-[10px] text-slate-400 mt-1">View on Credly</p>
+              </div>
+              <i data-lucide="external-link" class="w-4 h-4 text-blue-400 shrink-0"></i>
+            </div>
+          </a>
+          <a href="https://www.credly.com/badges/793bdc37-d1e7-4fb1-a2ed-c0c270045779" target="_blank"
+            rel="noopener noreferrer"
+            class="block aspect-square p-3 rounded-xl bg-dark-900/80 border border-slate-800 hover:border-violet-500/50 transition group">
+            <img src="assets/python-essentials-2-badge.svg" alt="Python Essentials 2 Credly badge"
+              class="w-full max-w-[120px] mx-auto rounded-lg transition duration-300 group-hover:scale-[1.02]">
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <div>
+                <h4 class="font-bold text-white text-xs">Python Essentials 2</h4>
+                <p class="text-[10px] text-slate-400 mt-1">View on Credly</p>
+              </div>
+              <i data-lucide="external-link" class="w-4 h-4 text-violet-400 shrink-0"></i>
+            </div>
+          </a>
+          <a href="https://www.coursera.org/account/accomplishments/badge/DxJ_6lcjTBGSf-pXI8wR_Q" target="_blank"
+            rel="noopener noreferrer"
+            class="block aspect-square p-3 rounded-xl bg-dark-900/80 border border-slate-800 hover:border-orange-500/50 transition group">
+            <img src="assets/prompt-engineering-badge.svg" alt="Prompt Engineering Coursera badge"
+              class="w-full max-w-[120px] mx-auto rounded-lg transition duration-300 group-hover:scale-[1.02]">
+            <div class="mt-2 flex items-center justify-between gap-2">
+              <div>
+                <h4 class="font-bold text-white text-xs">Prompt Engineering</h4>
+                <p class="text-[10px] text-slate-400 mt-1">View on Coursera</p>
+              </div>
+              <i data-lucide="external-link" class="w-4 h-4 text-orange-400 shrink-0"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== CONTACT SECTION ==================== -->
+  <section id="contact" class="relative z-10 py-20 max-w-7xl mx-auto px-6 md:px-12 border-t border-slate-800/60">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-mono text-xs text-indigo-400 tracking-wider uppercase mb-3">
+        <i data-lucide="message-square" class="w-3.5 h-3.5"></i>
+        <span>Get in Touch</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-bold text-white tracking-tight mb-4">
+        Let's Connect & Build Together
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+
+      <!-- Direct Contact Info Cards (5 cols) -->
+      <div class="lg:col-span-12 space-y-4">
+        <div class="max-w-3xl mx-auto p-6 rounded-2xl glass-card border border-slate-800">
+          <h3 class="font-bold text-lg text-white mb-4 text-center">Contact Information</h3>
+
+          <div class="space-y-4">
+            <!-- Email Item with Copy Button -->
+            <div class="flex items-center justify-between p-3.5 rounded-xl bg-dark-900 border border-slate-800/80">
+              <div class="flex items-center gap-3">
+                <div class="p-2 rounded-lg bg-indigo-500/10 text-indigo-400">
+                  <i data-lucide="mail" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <span class="text-xs text-slate-400 block">Gmail</span>
+                  <a id="contact-email-link" href="mailto:kovvurinavyamounika@gmail.com"
+                    class="text-sm font-mono text-white hover:text-indigo-300 transition">kovvurinavyamounika@gmail.com</a>
+                </div>
+              </div>
+              <button onclick="copyEmail()"
+                class="p-2 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition" title="Copy Email">
+                <i data-lucide="copy" class="w-4 h-4"></i>
+              </button>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-center gap-3 p-3.5 rounded-xl bg-dark-900 border border-slate-800/80">
+              <div class="p-2 rounded-lg bg-purple-500/10 text-purple-400">
+                <i data-lucide="map-pin" class="w-4 h-4"></i>
+              </div>
+              <div>
+                <span class="text-xs text-slate-400 block">Location</span>
+                <span id="contact-location" class="text-sm text-white">Andhra Pradesh, India</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Social Profiles Card -->
+        <div class="max-w-3xl mx-auto p-6 rounded-2xl glass-card border border-slate-800">
+          <span class="text-xs font-mono uppercase text-slate-400 tracking-wider block mb-4 text-center">Connect
+            On</span>
+          <div class="grid grid-cols-2 gap-3">
+            <a id="contact-github-link" href="https://github.com/kovvurinavyamounika" target="_blank"
+              rel="noopener noreferrer"
+              class="p-3 rounded-xl bg-dark-900 border border-slate-800 hover:border-indigo-500/40 hover:bg-slate-800 flex items-center gap-3 transition">
+              <i data-lucide="github" class="w-4 h-4 text-white"></i>
+              <span class="text-xs font-medium text-slate-200">GitHub</span>
+            </a>
+            <a id="contact-linkedin-link" href="https://www.linkedin.com/in/navya-mounika-kovvuri-24218a387"
+              target="_blank" rel="noopener noreferrer"
+              class="p-3 rounded-xl bg-dark-900 border border-slate-800 hover:border-indigo-500/40 hover:bg-slate-800 flex items-center gap-3 transition">
+              <i data-lucide="linkedin" class="w-4 h-4 text-sky-400"></i>
+              <span class="text-xs font-medium text-slate-200">LinkedIn</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="relative z-10 py-10 border-t border-slate-800/80 bg-dark-950 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <span id="footer-monogram" class="font-mono text-indigo-400 font-bold">&lt;KNM/&gt;</span>
+        <span>Designed &amp; Engineered by <strong id="footer-author" class="text-white">Kovvuri Navya Mounika</strong>
+          • © 2026</span>
+      </div>
+
+      <div class="flex items-center gap-6 font-mono">
+        <a href="#hero" class="hover:text-indigo-400 transition">Back to Top ↑</a>
+        <a id="footer-github-link" href="https://github.com/kovvurinavyamounika" target="_blank"
+          rel="noopener noreferrer" class="hover:text-white transition">GitHub</a>
+        <a id="footer-linkedin-link" href="https://www.linkedin.com/in/navya-mounika-kovvuri-24218a387" target="_blank"
+          rel="noopener noreferrer" class="hover:text-white transition">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==================== OWNER ONLY CUSTOMIZER TRIGGER (Hidden from visitors) ==================== -->
+  <button id="customizer-open-btn" class="hidden" aria-hidden="true" title="Owner Profile Editor"></button>
+
+  <!-- ==================== BACK TO TOP FLOATING BUTTON ==================== -->
+  <a href="#hero" id="back-to-top"
+    class="fixed bottom-6 right-6 z-40 p-3 rounded-xl bg-indigo-600/80 hover:bg-indigo-600 text-white shadow-xl shadow-indigo-600/40 backdrop-blur-md transition-all duration-300 opacity-0 pointer-events-none hover:scale-110"
+    aria-label="Scroll back to top">
+    <i data-lucide="arrow-up" class="w-5 h-5"></i>
+  </a>
+
+  <!-- ==================== PROJECT DETAILS MODAL ==================== -->
+  <div id="project-modal"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div id="modal-card"
+      class="bg-dark-900 border border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl relative">
+      <button id="modal-close-btn"
+        class="absolute top-5 right-5 p-2 rounded-xl bg-dark-850 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+        aria-label="Close modal">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="pr-8 mb-4">
+        <span id="modal-subtitle" class="text-xs font-mono text-indigo-400 uppercase tracking-wider block mb-1"></span>
+        <h3 id="modal-title" class="text-2xl font-bold text-white tracking-tight"></h3>
+      </div>
+      <div id="modal-tags" class="flex flex-wrap gap-2 mb-6"></div>
+      <div class="mb-6">
+        <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Architectural Overview</h4>
+        <p id="modal-overview" class="text-slate-300 text-sm leading-relaxed"></p>
+      </div>
+      <div class="mb-8">
+        <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-3">Key Engineering Highlights</h4>
+        <ul id="modal-highlights" class="space-y-2.5"></ul>
+      </div>
+      <div class="flex items-center gap-3 pt-5 border-t border-slate-800">
+        <a id="modal-github" href="#" target="_blank" rel="noopener noreferrer"
+          class="flex-1 py-3 rounded-xl text-center text-xs font-semibold text-slate-200 bg-dark-850 border border-slate-700 hover:bg-slate-800 transition flex items-center justify-center gap-2">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>View GitHub Source</span>
+        </a>
+        <a id="modal-live" href="#" target="_blank" rel="noopener noreferrer"
+          class="flex-1 py-3 rounded-xl text-center text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 shadow-md shadow-indigo-600/30 transition flex items-center justify-center gap-2">
+          <i data-lucide="external-link" class="w-4 h-4"></i>
+          <span>Live Deployment</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== CERTIFICATE PREVIEW MODAL ==================== -->
+  <div id="certificate-modal"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div id="certificate-card"
+      class="bg-dark-900 border border-slate-800 rounded-2xl max-w-3xl w-full p-6 sm:p-8 max-h-[90vh] overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl relative">
+      <button id="certificate-close-btn"
+        class="absolute top-5 right-5 p-2 rounded-xl bg-dark-850 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+        aria-label="Close certificate preview">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="pr-8 mb-6">
+        <span id="certificate-issuer"
+          class="text-xs font-mono text-indigo-400 uppercase tracking-wider block mb-1"></span>
+        <h3 id="certificate-title" class="text-2xl font-bold text-white tracking-tight"></h3>
+      </div>
+
+      <div id="certificate-preview" class="mb-6 rounded-2xl border border-slate-800 bg-dark-850 p-4 shadow-inner">
+      </div>
+
+      <div class="mb-6">
+        <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-2">Certificate Details</h4>
+        <p id="certificate-details" class="text-slate-300 text-sm leading-relaxed"></p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== ⚙️ LIVE CUSTOMIZER MODAL ==================== -->
+  <div id="customizer-modal"
+    class="fixed inset-0 z-50 bg-black/80 backdrop-blur-md hidden opacity-0 transition-opacity duration-300 flex items-center justify-center p-4">
+    <div id="customizer-card"
+      class="bg-dark-900 border border-slate-800 rounded-2xl max-w-3xl w-full p-6 sm:p-8 max-h-[92vh] overflow-y-auto transform scale-95 transition-transform duration-300 shadow-2xl relative">
+
+      <!-- Close Button -->
+      <button id="customizer-close-btn"
+        class="absolute top-5 right-5 p-2 rounded-xl bg-dark-850 border border-slate-800 text-slate-400 hover:text-white hover:bg-slate-800 transition"
+        aria-label="Close customizer">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="pr-8 mb-6">
+        <div class="flex items-center gap-2 font-mono text-xs text-indigo-400 uppercase tracking-wider mb-1">
+          <i data-lucide="sliders" class="w-3.5 h-3.5"></i>
+          <span>Live Portfolio Editor</span>
+        </div>
+        <h3 class="text-2xl font-bold text-white tracking-tight">Update Your Information Anytime</h3>
+        <p class="text-xs text-slate-400 mt-1">
+          Change any details below and click <strong>"Save &amp; Update"</strong> to see changes live instantly!
+        </p>
+      </div>
+
+      <div class="space-y-6">
+        <!-- Section 1: Personal Details -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-slate-800 space-y-4">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-indigo-300 flex items-center gap-1.5">
+            <i data-lucide="user" class="w-3.5 h-3.5"></i>
+            <span>Personal &amp; Contact Details</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div>
+              <label class="block text-slate-300 mb-1">Full Name</label>
+              <input type="text" id="edit-fullname"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Short / Display Name</label>
+              <input type="text" id="edit-shortname"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Email Address</label>
+              <input type="email" id="edit-email"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Location</label>
+              <input type="text" id="edit-location"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+          </div>
+
+          <!-- Photo Upload & Path Input -->
+          <div
+            class="p-3 rounded-lg bg-dark-900 border border-slate-700 flex flex-col sm:flex-row items-center gap-4 text-xs font-mono">
+            <div class="relative shrink-0">
+              <img id="edit-photo-preview" src="assets/default-avatar.svg" alt="Preview"
+                class="w-16 h-16 rounded-xl object-cover border border-indigo-500/40 bg-dark-950 shadow-md" />
+            </div>
+            <div class="flex-1 w-full space-y-2">
+              <label class="block text-slate-300 text-xs font-semibold">Your Profile Photo</label>
+              <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+                <input type="file" id="edit-photo-file" accept="image/*"
+                  class="block w-full text-xs text-slate-400 file:mr-2 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-mono file:bg-indigo-600 file:text-white hover:file:bg-indigo-500 cursor-pointer" />
+              </div>
+              <input type="text" id="edit-photo-path" placeholder="assets/profile.jpg or image URL"
+                class="w-full px-3 py-1.5 rounded-lg bg-dark-950 border border-slate-700 text-white text-[11px] focus:outline-none focus:border-indigo-500" />
+              <p class="text-[10px] text-slate-400">💡 Choose a picture from your computer, or place it in the folder as
+                <code class="text-indigo-300">assets/profile.jpg</code>.
+              </p>
+            </div>
+          </div>
+          <div class="text-xs font-mono space-y-3">
+            <div>
+              <label class="block text-slate-300 mb-1">Hero Tagline</label>
+              <input type="text" id="edit-tagline"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Elevator Bio</label>
+              <textarea id="edit-bio" rows="3"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500 resize-none font-sans text-xs"></textarea>
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Availability Status</label>
+              <input type="text" id="edit-availability"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 2: Education & Stats -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-slate-800 space-y-4">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-purple-300 flex items-center gap-1.5">
+            <i data-lucide="graduation-cap" class="w-3.5 h-3.5"></i>
+            <span>Education &amp; Key Stats</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-mono">
+            <div>
+              <label class="block text-slate-300 mb-1">Degree Title</label>
+              <input type="text" id="edit-degree"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Department / Institution</label>
+              <input type="text" id="edit-institution"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">CGPA / Grade</label>
+              <input type="text" id="edit-cgpa"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Batch / Timeline</label>
+              <input type="text" id="edit-timeline"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">DSA Solved Count (e.g. 350+)</label>
+              <input type="text" id="edit-dsasolved"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">Projects Built (e.g. 12+)</label>
+              <input type="text" id="edit-projectsbuilt"
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 3: Social & Platform Links -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-slate-800 space-y-4">
+          <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-cyan-300 flex items-center gap-1.5">
+            <i data-lucide="link" class="w-3.5 h-3.5"></i>
+            <span>Profile Links</span>
+          </h4>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-mono">
+            <div>
+              <label class="block text-slate-300 mb-1">GitHub URL</label>
+              <input type="url" id="edit-github" placeholder="https://github.com/..."
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">LinkedIn URL</label>
+              <input type="url" id="edit-linkedin" placeholder="https://linkedin.com/in/..."
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+            <div>
+              <label class="block text-slate-300 mb-1">LeetCode URL</label>
+              <input type="url" id="edit-leetcode" placeholder="https://leetcode.com/u/..."
+                class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-700 text-white focus:outline-none focus:border-indigo-500" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Section 4: Export Config Code -->
+        <div class="p-4 rounded-xl bg-dark-850 border border-slate-800 space-y-3">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <h4 class="text-xs font-mono font-bold uppercase tracking-wider text-amber-300 flex items-center gap-1.5">
+              <i data-lucide="code" class="w-3.5 h-3.5"></i>
+              <span>Permanent Config Export (js/portfolio-data.js)</span>
+            </h4>
+            <button id="customizer-copy-code-btn"
+              class="px-3 py-1 rounded-lg bg-dark-900 hover:bg-slate-800 border border-slate-700 text-xs font-mono text-indigo-300 hover:text-white transition flex items-center gap-1.5">
+              <i data-lucide="copy" class="w-3.5 h-3.5"></i>
+              <span>Copy Config Code</span>
+            </button>
+          </div>
+          <p class="text-[11px] text-slate-400">
+            Click <em>"Copy Config Code"</em> and paste it into <code
+              class="text-indigo-300">js/portfolio-data.js</code> to permanently save all updates across all devices!
+          </p>
+          <textarea id="edit-code-export" readonly rows="5"
+            class="w-full px-3 py-2 rounded-lg bg-dark-900 border border-slate-800 text-slate-300 font-mono text-[11px] focus:outline-none resize-none"></textarea>
+        </div>
+
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center justify-between pt-6 mt-6 border-t border-slate-800 flex-wrap gap-3">
+        <button id="customizer-reset-btn"
+          class="px-4 py-2.5 rounded-xl text-xs font-mono text-rose-400 hover:text-rose-300 hover:bg-rose-500/10 border border-rose-500/20 transition flex items-center gap-1.5">
+          <i data-lucide="rotate-ccw" class="w-3.5 h-3.5"></i>
+          <span>Reset Defaults</span>
+        </button>
+
+        <div class="flex items-center gap-3">
+          <button
+            onclick="document.getElementById('customizer-modal').classList.add('hidden'); document.body.style.overflow='';"
+            class="px-4 py-2.5 rounded-xl text-xs font-medium text-slate-300 hover:bg-slate-800 transition">
+            Cancel
+          </button>
+          <button id="customizer-save-btn"
+            class="px-6 py-2.5 rounded-xl text-xs font-semibold text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 shadow-md shadow-indigo-600/30 transition flex items-center gap-2">
+            <i data-lucide="save" class="w-3.5 h-3.5"></i>
+            <span>Save &amp; Update Live</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== TOAST NOTIFICATION ==================== -->
+  <div id="toast"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 hidden bg-slate-900/95 border border-indigo-500/40 backdrop-blur-md px-5 py-3 rounded-xl shadow-2xl flex items-center gap-2.5 text-xs sm:text-sm text-slate-200">
+    <i data-lucide="info" class="w-4 h-4 text-indigo-400 shrink-0"></i>
+    <span id="toast-message">Notification message</span>
+  </div>
+
+  <!-- Centralized Data Configuration -->
+  <script src="js/portfolio-data.js"></script>
+  <!-- Dynamic Renderer Script -->
+  <script src="js/render.js"></script>
+  <!-- Main JavaScript File -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>
